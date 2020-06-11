@@ -8,7 +8,7 @@ const requestUtil = ({
 	uni.showLoading({title:''})
 	let url = config.apiUrl +  api
 	let header = {
-	      'token': strogeUtil.getStorage('token')
+	      'Authorization': 'Bearer ' + strogeUtil.getStorage('token')
 	    }
 	return new Promise(function(resolve, reject){
 		uni.request({
@@ -20,12 +20,24 @@ const requestUtil = ({
 				uni.hideLoading()
 				let data = res.data
 				if(api!== '/login' && (data['code'] === 401|| data['code'] === 401 ) ) {
+					
 					uni.showModal({
 					    title: '提示',
 					    content: '登陆失效,请重新登陆!',
 					    success: function (res) {
 					        if (res.confirm) {
 					            console.log('用户点击确定');
+								// uni.redirectTo({
+								//     url: ''
+								// });
+								strogeUtil.setStorage('userId', '')
+								strogeUtil.setStorage('token', '')
+								uni.reLaunch({
+								    url: '../index/index',
+									complete:function(res){
+										console.log('reLaunch:', res)
+									}
+								});
 					        } else if (res.cancel) {
 					            console.log('用户点击取消');
 					        }

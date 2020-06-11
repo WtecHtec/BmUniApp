@@ -83,6 +83,8 @@
 					console.log('handleLogin：',res)
 					let data = res.data
 					if(data.statusCode === 200) {
+						this.strogeUtil.setStorage('userId', data.responseData.userid)
+						this.strogeUtil.setStorage('token', data.responseData.token)
 						uni.switchTab({ url: '/pages/main/index'	});
 					} else {
 						this.config.showToast(data.responseData

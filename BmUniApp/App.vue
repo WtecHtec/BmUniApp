@@ -15,6 +15,10 @@
 <style>
 	/*每个页面公共css */
 	uni-page-body {
-		height: 100vh;
+		/* height: 100vh; */
+	}
+	
+	page {
+	  height: 100%;
 	}
 </style>

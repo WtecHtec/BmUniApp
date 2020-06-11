@@ -1,4 +1,4 @@
-const apiUrl = 'http://101.200.158.40/bmapi'
+const apiUrl = 'https://myloveqwy.cn/bmapi'
 const showToast = (title,icon='none') => {
 	uni.showToast({
 	    title: title,

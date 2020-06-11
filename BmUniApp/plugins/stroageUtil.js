@@ -1,6 +1,7 @@
 const getStorage = (key)=>{
 	try {
 	    let value = uni.getStorageSync(key)
+	
 		return value
 	} catch (e) {
 	    // error
@@ -11,6 +12,7 @@ const getStorage = (key)=>{
 const setStorage = (key,val)=>{
 	try {
 	    uni.setStorageSync(key, val);
+			
 	} catch (e) {
 	    // error
 	}
